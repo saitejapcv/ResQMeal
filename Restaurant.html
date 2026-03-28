@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface-variant": "#5a5c5c",
+              "secondary-fixed-dim": "#c1d8e4",
+              "primary-fixed": "#b2faa9",
+              "on-secondary-fixed-variant": "#495f69",
+              "secondary-container": "#cfe6f2",
+              "tertiary-fixed": "#fec330",
+              "outline-variant": "#acadad",
+              "on-primary": "#d1ffc8",
+              "secondary-fixed": "#cfe6f2",
+              "error-container": "#f95630",
+              "on-tertiary": "#fff1db",
+              "on-secondary-fixed": "#2d424c",
+              "on-tertiary-fixed-variant": "#634900",
+              "secondary-dim": "#3e535c",
+              "tertiary": "#765600",
+              "surface-dim": "#d3d5d5",
+              "on-primary-container": "#1f6223",
+              "background": "#f6f6f6",
+              "surface-container": "#e7e8e8",
+              "surface": "#f6f6f6",
+              "surface-tint": "#266829",
+              "tertiary-container": "#fec330",
+              "inverse-on-surface": "#9c9d9d",
+              "surface-bright": "#f6f6f6",
+              "tertiary-fixed-dim": "#efb520",
+              "primary-dim": "#185c1e",
+              "surface-container-low": "#f0f1f1",
+              "outline": "#767777",
+              "primary-container": "#b2faa9",
+              "primary-fixed-dim": "#a4eb9c",
+              "tertiary-dim": "#674b00",
+              "surface-container-high": "#e1e3e3",
+              "on-tertiary-container": "#584000",
+              "primary": "#266829",
+              "error-dim": "#b92902",
+              "surface-container-lowest": "#ffffff",
+              "on-surface": "#2d2f2f",
+              "on-error-container": "#520c00",
+              "on-secondary": "#e4f5ff",
+              "error": "#b02500",
+              "on-error": "#ffefec",
+              "secondary": "#495f69",
+              "inverse-primary": "#b2faa9",
+              "on-primary-fixed-variant": "#2a6c2c",
+              "on-background": "#2d2f2f",
+              "on-tertiary-fixed": "#402d00",
+              "on-secondary-container": "#40555f",
+              "surface-container-highest": "#dbdddd",
+              "on-primary-fixed": "#054e12",
+              "inverse-surface": "#0c0f0f",
+              "surface-variant": "#dbdddd"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, #266829 0%, #185c1e 100%);
+        }
+        body {
+            background-color: #f6f6f6;
+            color: #2d2f2f;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 glass-header shadow-[0_12px_32px_rgba(45,47,47,0.06)]">
+<div class="flex justify-between items-center px-6 py-4 w-full max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-green-800 p-2 hover:bg-green-50 transition-colors rounded-full" data-icon="menu">menu</button>
+<span class="text-2xl font-extrabold text-green-900 tracking-tight font-headline">FoodBridge</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-green-900 font-bold font-headline transition-colors" href="#">Dashboard</a>
+<a class="text-zinc-500 font-headline hover:bg-green-50 px-3 py-1 rounded-lg transition-colors" href="#">Deliveries</a>
+<a class="text-zinc-500 font-headline hover:bg-green-50 px-3 py-1 rounded-lg transition-colors" href="#">Impact</a>
+</nav>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-bold leading-none">Green Bistro</p>
+<p class="text-[10px] text-zinc-500 font-semibold uppercase tracking-wider">Premium Partner</p>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-sm active:scale-95 transition-transform duration-200">
+<img alt="Profile" data-alt="professional portrait of a restaurant manager in a clean white apron smiling in a sunlit modern kitchen setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx_7fNixzVC2GjFB_4MTgUfrnz--TQsOEkaq3uOe53fSv9xjWX2GDv2HH8xWAEGMFMdi_rWAube1a6ACHLO7yuW1Wh2R3uV_Bsd-b62c_lbf86MGNc-k0cvVWXlmhuXECJ3ecRznkR9FcHjl4vOTIKTY8KiZwRIGt2nePWC9oqAZumEXDF5styfwk1yjN6xDO2kNuP8PlLke7iNno4-ZxKxY9xJ4UYwrIZM0EjgWTDauA9wX69ZzO4E9dgsct51DWK8Hbh3JnRYZzl"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-28 pb-32 max-w-screen-2xl mx-auto px-4 md:px-8 lg:px-12">
+<!-- Hero Section / Bento Header -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-12">
+<div class="lg:col-span-8 bg-surface-container-lowest p-8 rounded-[1.5rem] shadow-[0_12px_32px_rgba(45,47,47,0.04)] relative overflow-hidden">
+<div class="relative z-10 max-w-md">
+<h1 class="text-4xl font-extrabold font-headline tracking-tight text-on-surface mb-4">Hello, Green Bistro</h1>
+<p class="text-on-surface-variant mb-8 leading-relaxed">You've saved <span class="text-primary font-bold">1,240 meals</span> this month. Ready to bridge more surplus food to those in need?</p>
+<button class="primary-gradient text-on-primary px-8 py-4 rounded-xl font-bold flex items-center gap-3 shadow-lg hover:shadow-xl transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="add_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+                        Post Surplus Food
+                    </button>
+</div>
+<div class="absolute top-0 right-0 w-1/2 h-full hidden md:block">
+<img alt="Food background" class="w-full h-full object-cover opacity-20" data-alt="fresh organic vegetables including kale, carrots, and tomatoes arranged artistically on a light textured background with soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAw7sAH1ObEVK6Cw4Z4a_gyHWvwxo5me5cSHo6aw7TNUah3xM8x5nR5nwYVU37qjfbnGbkXtcrbK_4uQUOJXnKyI06bI4IyxhRbFCZlP702REgsu2_RZF181JOcZMT_ExfFHBt6I1VR-syLu828BSOKOK5j2sp46BD0-4s52wfL7tvMfcyznfnEVc9g5Ypq70TbdzOBqick_Pxj883kJY_Caibl6aW34rZ8A28cTwrzS3XrKYpcXYMtiedv-odrm0hZXitr_pNH5EXw"/>
+</div>
+</div>
+<div class="lg:col-span-4 bg-primary-container p-8 rounded-[1.5rem] flex flex-col justify-between">
+<div>
+<span class="text-[11px] font-bold uppercase tracking-[0.1em] text-on-primary-fixed-variant">Community Impact</span>
+<h2 class="text-3xl font-bold text-on-primary-container mt-2">14.2 Tons</h2>
+<p class="text-on-primary-container/70 text-sm mt-1">CO2 Emissions Avoided</p>
+</div>
+<div class="flex items-center gap-2 mt-6">
+<div class="bg-white/40 px-3 py-1.5 rounded-full flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+<span class="text-xs font-bold">+12% vs last month</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Dashboard Content -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-10">
+<!-- Active Listings & Completed (Col 1 & 2) -->
+<div class="xl:col-span-2 space-y-12">
+<!-- New Listing Form (Sectioned with Container Shift) -->
+<section class="bg-surface-container rounded-[2rem] p-1 overflow-hidden">
+<div class="bg-surface-container-lowest rounded-[1.8rem] p-8">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-2xl font-bold font-headline tracking-tight">Post Surplus Food</h2>
+<span class="text-xs font-bold text-zinc-400 uppercase tracking-widest">Step 1 of 2</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-6">
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-2">Food Type</label>
+<div class="flex gap-4">
+<button class="flex-1 py-3 px-4 rounded-xl border-2 border-primary bg-primary-container/20 text-on-primary-container font-bold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="leafy_green">energy_savings_leaf</span>
+                                            Veg
+                                        </button>
+<button class="flex-1 py-3 px-4 rounded-xl border-2 border-surface-container text-zinc-500 font-bold flex items-center justify-center gap-2 hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="restaurant">restaurant</span>
+                                            Non-Veg
+                                        </button>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-2">Quantity (Meals)</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary" placeholder="e.g. 25" type="number"/>
+</div>
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-2">Expiry Time</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary" type="time"/>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-2">Pickup Window</label>
+<select class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary">
+<option>Immediate (Within 30 mins)</option>
+<option>Next 2 Hours</option>
+<option>End of Day</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-zinc-500 mb-2">Pickup Location</label>
+<div class="rounded-2xl overflow-hidden h-[240px] relative">
+<img alt="Map View" class="w-full h-full object-cover" data-alt="a stylized minimalist map showing urban streets and a pin drop with a soft green glow effect" data-location="Chicago" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQTrh0_EfyuyM6wwBN-UaAFB01r-INjDUWFvrZf-d8Vi6qQpHjp2IBXiqS3cEoKz5N2D5VtysbU-tpMyVWZCGJNa6N5pjmdPkl8XyoeL_rNGLIFWwREoevCw6YAL6GJPOS1ONBTd_G-gSq5l20q7ly-BgRLYFUL0tu9AFp5JS1deaI_ufJVPtP7oJwE-RKpaMyCcTl5xL601MKPh6eQDG6zQs82Xc4cmiFdBRz19PTlI6G7_BF25ca8U7g7mb5hd6IcLIDE0AXpkP6"/>
+<div class="absolute inset-0 bg-black/5 flex items-center justify-center">
+<div class="bg-white px-4 py-2 rounded-full shadow-lg flex items-center gap-2 border border-primary/10">
+<span class="material-symbols-outlined text-primary" data-icon="location_on" data-weight="fill" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="text-xs font-bold">124 Green St, Metro City</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Active Listings -->
+<section>
+<div class="flex items-end justify-between mb-8">
+<div>
+<h2 class="text-2xl font-bold font-headline tracking-tight">Active Listings</h2>
+<p class="text-sm text-zinc-500">Managing real-time donations</p>
+</div>
+<button class="text-primary font-bold text-sm flex items-center gap-1 hover:underline">
+                            View Logistics Map <span class="material-symbols-outlined text-sm" data-icon="arrow_outward">arrow_outward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Card 1: Urgent -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.02)] border-l-4 border-error">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-error-container text-on-error-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Awaiting Pickup</div>
+<span class="text-[10px] font-bold text-error uppercase tracking-widest">Expiring in 42m</span>
+</div>
+<h3 class="font-bold text-lg mb-1">Fresh Pasta &amp; Salads</h3>
+<p class="text-xs text-zinc-500 mb-6">Quantity: 18 Meals • Non-Veg</p>
+<div class="flex items-center gap-3 pt-4 border-t border-zinc-50">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-zinc-400 text-sm" data-icon="person_search">person_search</span>
+</div>
+<span class="text-xs font-medium text-zinc-500">Searching for volunteer...</span>
+</div>
+</div>
+<!-- Card 2: Assigned -->
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.02)] border-l-4 border-tertiary">
+<div class="flex justify-between items-start mb-4">
+<div class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Volunteer Assigned</div>
+<span class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Pick up at 4:30 PM</span>
+</div>
+<h3 class="font-bold text-lg mb-1">Bakery Assortment</h3>
+<p class="text-xs text-zinc-500 mb-6">Quantity: 40 Units • Veg</p>
+<div class="flex items-center gap-3 pt-4 border-t border-zinc-50">
+<div class="w-8 h-8 rounded-full overflow-hidden">
+<img alt="Volunteer" data-alt="headshot of a young friendly volunteer man with a warm smile and professional demeanor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3-iSdBhp1WyI8oR3-XdkyKQ9zIdWtoiPPOGUeXeBqEn72HklSrwYEkOhQ1ZhormetA-1dHf6OdD6jBnga3ZJT4uNkL0AQw-YSeyP3_AKDj65UDvKSCtUMvoATPAIZGwDq6PpZHAsYvoFpaouAvb8u1LZK7TkRk_v6jN6e0m9UHOXNlCgG_0CwQCFt_LUoDN89-wAkmJcAuDnVVuB68l-AOwYmVep44Nqdv6URpAkBkJDFuOOopLNGEpcqjJcM-sYyHE2z2ns3kiKe"/>
+</div>
+<div>
+<p class="text-xs font-bold">David Chen</p>
+<p class="text-[10px] text-zinc-400">Arriving in 12 mins</p>
+</div>
+<button class="ml-auto material-symbols-outlined text-primary bg-primary-container/30 p-2 rounded-lg" data-icon="call">call</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Sidebar: Completed & History (Col 3) -->
+<div class="space-y-8">
+<div class="bg-white rounded-[1.5rem] p-8 shadow-[0_12px_32px_rgba(45,47,47,0.04)]">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-xl font-bold font-headline tracking-tight">Completed</h2>
+<span class="material-symbols-outlined text-zinc-300" data-icon="history">history</span>
+</div>
+<div class="space-y-6">
+<!-- History Item 1 -->
+<div class="flex items-center gap-4 group">
+<div class="w-12 h-12 rounded-xl bg-green-50 flex items-center justify-center group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<h4 class="font-bold text-sm">Roasted Chicken Rice</h4>
+<span class="text-[10px] text-zinc-400 font-medium">Yesterday</span>
+</div>
+<p class="text-xs text-zinc-500">Picked up by Local Food Bank</p>
+<div class="mt-2 inline-flex items-center gap-1 bg-secondary-container/50 px-2 py-0.5 rounded-full">
+<span class="text-[9px] font-bold text-on-secondary-container">22kg SAVED</span>
+</div>
+</div>
+</div>
+<!-- History Item 2 -->
+<div class="flex items-center gap-4 group">
+<div class="w-12 h-12 rounded-xl bg-green-50 flex items-center justify-center group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<h4 class="font-bold text-sm">Vegan Burrito Bowls</h4>
+<span class="text-[10px] text-zinc-400 font-medium">2 days ago</span>
+</div>
+<p class="text-xs text-zinc-500">Picked up by Shelter Hope</p>
+<div class="mt-2 inline-flex items-center gap-1 bg-secondary-container/50 px-2 py-0.5 rounded-full">
+<span class="text-[9px] font-bold text-on-secondary-container">15kg SAVED</span>
+</div>
+</div>
+</div>
+<!-- History Item 3 -->
+<div class="flex items-center gap-4 group opacity-70">
+<div class="w-12 h-12 rounded-xl bg-green-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<h4 class="font-bold text-sm">Morning Pastry Box</h4>
+<span class="text-[10px] text-zinc-400 font-medium">Aug 12</span>
+</div>
+<p class="text-xs text-zinc-500">Picked up by Unity Center</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 py-3 rounded-xl border border-zinc-100 text-xs font-bold text-zinc-500 hover:bg-zinc-50 transition-colors">
+                        View Full History
+                    </button>
+</div>
+<!-- Impact Card -->
+<div class="bg-zinc-900 text-white rounded-[1.5rem] p-8 overflow-hidden relative">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-tertiary-fixed mb-4" data-icon="eco" data-weight="fill" style="font-variation-settings: 'FILL' 1;">eco</span>
+<h3 class="text-lg font-bold mb-2">Sustainability Badge</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-6">You are in the top 5% of restaurants reducing food waste this month.</p>
+<button class="text-white text-xs font-bold underline underline-offset-4">Share Certificate</button>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-20">
+<span class="material-symbols-outlined text-[120px]" data-icon="workspace_premium">workspace_premium</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- NavigationDrawer (Mobile Sidebar Mockup / Contextual) -->
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white shadow-[0_-4px_24px_rgba(0,0,0,0.04)] rounded-t-[1.5rem] flex justify-around items-center px-4 pb-6 pt-3 z-50">
+<a class="flex flex-col items-center justify-center bg-green-100 text-green-900 rounded-[1.25rem] px-5 py-2" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="grid_view" data-weight="fill" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="font-['Inter'] text-[10px] font-bold uppercase tracking-wider mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 px-5 py-2" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="local_shipping">local_shipping</span>
+<span class="font-['Inter'] text-[10px] font-bold uppercase tracking-wider mt-1">Deliveries</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 px-5 py-2" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="analytics">analytics</span>
+<span class="font-['Inter'] text-[10px] font-bold uppercase tracking-wider mt-1">Impact</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 px-5 py-2" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="person">person</span>
+<span class="font-['Inter'] text-[10px] font-bold uppercase tracking-wider mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

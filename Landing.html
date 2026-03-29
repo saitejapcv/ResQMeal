@@ -86,6 +86,24 @@
       .primary-gradient {
         background: linear-gradient(135deg, #266829 0%, #185c1e 100%);
       }
+
+      /* Navigation Drawer Transitions */
+      #nav-drawer {
+        transform: translateX(-100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      #nav-drawer.open {
+        transform: translateX(0);
+      }
+      #drawer-overlay {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+      #drawer-overlay.open {
+        opacity: 1;
+        visibility: visible;
+      }
     </style>
 <style>
     body {
@@ -94,17 +112,75 @@
   </style>
   </head>
 <body class="bg-surface font-body text-on-surface">
+    <!-- Navigation Drawer ({{DATA:COMPONENTS:COMPONENTS_21}} Reference) -->
+<div class="fixed inset-0 z-[60] overflow-hidden pointer-events-none">
+<div class="absolute inset-0 bg-black/40 backdrop-blur-sm pointer-events-auto" id="drawer-overlay" onclick="toggleDrawer()"></div>
+<aside class="fixed inset-y-0 left-0 z-[70] flex flex-col w-[280px] bg-white dark:bg-zinc-900 shadow-[0_12px_32px_rgba(45,47,47,0.15)] rounded-r-2xl pointer-events-auto" id="nav-drawer">
+<!-- Drawer Header -->
+<div class="p-6 border-b border-surface-container-high dark:border-zinc-800">
+<div class="flex items-center gap-4 mb-2">
+<div class="w-12 h-12 rounded-xl bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container text-2xl" data-icon="eco">eco</span>
+</div>
+<div>
+<h2 class="text-2xl font-bold text-primary font-headline tracking-tighter">FoodBridge</h2>
+<p class="text-xs text-on-surface-variant font-medium">Reduce Food Waste</p>
+</div>
+</div>
+<p class="text-[10px] text-outline uppercase tracking-widest mt-4 font-bold">v1.0.2</p>
+</div>
+<!-- Navigation Links -->
+<nav class="flex-1 overflow-y-auto p-4 space-y-1">
+<a class="flex items-center gap-4 px-4 py-3 bg-primary-container text-on-primary-container rounded-xl font-headline font-bold" href="Landing.html">
+<span class="material-symbols-outlined text-2xl" data-icon="home">home</span>
+<span>Home</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface hover:bg-surface-container transition-colors rounded-xl font-headline font-semibold" href="About.html">
+<span class="material-symbols-outlined text-2xl" data-icon="info">info</span>
+<span>About</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface hover:bg-surface-container transition-colors rounded-xl font-headline font-semibold" href="About.html#How">
+<span class="material-symbols-outlined text-2xl" data-icon="auto_awesome">auto_awesome</span>
+<span>How It Works</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface hover:bg-surface-container transition-colors rounded-xl font-headline font-semibold" href="Impact.html">
+<span class="material-symbols-outlined text-2xl" data-icon="insert_chart">insert_chart</span>
+<span>Impact Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface hover:bg-surface-container transition-colors rounded-xl font-headline font-semibold" href="">
+<span class="material-symbols-outlined text-2xl" data-icon="mail">mail</span>
+<span>Contact</span>
+</a>
+<div class="my-4 border-t border-surface-container-high dark:border-zinc-800"></div>
+<p class="px-4 py-2 text-[10px] text-outline uppercase tracking-widest font-bold">Account</p>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface hover:bg-surface-container transition-colors rounded-xl font-headline font-semibold" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="account_circle">account_circle</span>
+<span>Profile</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-on-surface hover:bg-surface-container transition-colors rounded-xl font-headline font-semibold" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-error hover:bg-error/10 transition-colors rounded-xl font-headline font-semibold mt-auto" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</nav>
+</aside>
+</div>
 <!-- TopAppBar Navigation Shell -->
 <nav class="fixed top-0 w-full z-50 bg-white/60 dark:bg-zinc-900/60 backdrop-blur-xl shadow-[0_12px_32px_rgba(45,47,47,0.06)]">
 <div class="flex justify-between items-center px-6 py-4 w-full max-w-screen-2xl mx-auto">
 <div class="flex items-center gap-4">
+<button class="p-2 -ml-2 hover:bg-surface-container rounded-full transition-colors active:scale-90" onclick="toggleDrawer()">
 <span class="material-symbols-outlined text-green-800 dark:text-green-400" data-icon="menu">menu</span>
+</button>
 <span class="text-2xl font-extrabold text-green-900 dark:text-green-50 tracking-tight font-headline">ResQMeal</span>
 </div>
 <div class="hidden md:flex gap-8 items-center font-headline font-bold tracking-tight">
 <a class="text-green-900 dark:text-green-200" href="#">Home</a>
-<a class="text-zinc-500 dark:text-zinc-400 hover:bg-green-50 dark:hover:bg-green-900/20 px-3 py-2 rounded-lg transition-colors" href="#">About</a>
-<a class="text-zinc-500 dark:text-zinc-400 hover:bg-green-50 dark:hover:bg-green-900/20 px-3 py-2 rounded-lg transition-colors" href="#">Impact</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:bg-green-50 dark:hover:bg-green-900/20 px-3 py-2 rounded-lg transition-colors" href="About.html">About</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:bg-green-50 dark:hover:bg-green-900/20 px-3 py-2 rounded-lg transition-colors" href="Impact.html">Impact</a>
 </div>
 <div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
 <img alt="User profile" data-alt="Close up portrait of a smiling person in warm natural sunlight with a soft blurred garden background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQZFCEskgNPLY8QUzmvNoY1H7i-jCNlYTooz-_GOC3fhPquFsVbrIrDoMjV3MppbRECkSDn3LKro-HAdOevJAdY435Jsdc2ReEXi6NURTXE7eEQkB1lsX8gjg6_WwutzKu2TB8QCkLv8PAwAYDv6RIHmv3GcZSMoFJ_bm3i7LaSh2a9xJkz-N_kRfqwqXr8ZazqriHgOjERuUTWHqhoyQkt7RpBZv5FtGCLnnhN3k0S3hSwKsb_8FY4vJiaZMe92SguMsNZ3hZlHt7"/>
@@ -125,10 +201,10 @@
                     Bridging the gap between surplus high-quality food and those who need it most. Connect, donate, and track your environmental impact.
                 </p>
 <div class="flex flex-col sm:flex-row gap-4">
-<button class="primary-gradient text-white px-8 py-4 rounded-xl font-headline font-bold text-lg shadow-[0_12px_32px_rgba(38,104,41,0.2)] active:scale-95 transition-transform duration-200">
+<button class="primary-gradient text-white px-8 py-4 rounded-xl font-headline font-bold text-lg shadow-[0_12px_32px_rgba(38,104,41,0.2)] active:scale-95 transition-transform duration-200" onclick="window.location.href = 'Registration.html'">
                         Get Started
                     </button>
-<button class="bg-surface-container-lowest text-on-surface px-8 py-4 rounded-xl font-headline font-bold text-lg hover:bg-surface-container transition-colors">
+<button class="bg-surface-container-lowest text-on-surface px-8 py-4 rounded-xl font-headline font-bold text-lg hover:bg-surface-container transition-colors" onclick="location.href = '#Ledger'">
                         Learn More
                     </button>
 </div>
@@ -178,7 +254,7 @@
                             Impact reports for customers
                         </li>
 </ul>
-<button class="w-full py-4 rounded-xl bg-surface-container-highest text-on-primary-container font-headline font-bold hover:bg-primary-container transition-colors">
+<button class="w-full py-4 rounded-xl bg-surface-container-highest text-on-primary-container font-headline font-bold hover:bg-primary-container transition-colors" onclick="window.location.href = 'Registration.html'">
                         Register Venue
                     </button>
 </div>
@@ -201,7 +277,7 @@
                             Direct pickup scheduling
                         </li>
 </ul>
-<button class="w-full py-4 rounded-xl primary-gradient text-white font-headline font-bold shadow-lg shadow-primary/20">
+<button class="w-full py-4 rounded-xl primary-gradient text-white font-headline font-bold shadow-lg shadow-primary/20" onclick="window.location.href = 'Registration.html'">
                         Join Network
                     </button>
 </div>
@@ -224,14 +300,14 @@
                             Track personal CO2 impact
                         </li>
 </ul>
-<button class="w-full py-4 rounded-xl bg-surface-container-highest text-on-primary-container font-headline font-bold hover:bg-primary-container transition-colors">
+<button class="w-full py-4 rounded-xl bg-surface-container-highest text-on-primary-container font-headline font-bold hover:bg-primary-container transition-colors" onclick="window.location.href = 'Registration.html'">
                         Start Delivering
                     </button>
 </div>
 </div>
 </section>
 <!-- Impact Section (The Ledger) -->
-<section class="bg-surface-container rounded-[3rem] p-8 md:p-16 relative overflow-hidden">
+<section class="bg-surface-container rounded-[3rem] p-8 md:p-16 relative overflow-hidden" id = "Ledger">
 <div class="relative z-10">
 <h2 class="text-3xl md:text-5xl font-headline font-extrabold text-on-surface mb-12">The Impact Ledger</h2>
 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -278,4 +354,21 @@
 </div>
 </div>
 </div>
+
+<script>
+    function toggleDrawer() {
+      const drawer = document.getElementById('nav-drawer');
+      const overlay = document.getElementById('drawer-overlay');
+      drawer.classList.toggle('open');
+      overlay.classList.toggle('open');
+      
+      // Prevent scrolling when drawer is open
+      if (drawer.classList.contains('open')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    }
+  </script>
+
 </body></html>
